@@ -8,5 +8,5 @@ const template = '<li class="navitem" title="{{url}}">{{name}}</li>';
 //         console.log(text);
 //     }
 // };
-
+//testttt
 createIndex('index.json', document.querySelector('#content'), document.querySelector('nav'), template);
