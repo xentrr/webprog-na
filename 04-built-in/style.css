@@ -9,7 +9,7 @@ body {
     padding: 0em;
     color: #fff;
     text-shadow: 0px 0px 16px #fff8;
-    background-color: #000;
+    background-color: #2f088b;
 }
 
 nav {
@@ -17,9 +17,31 @@ nav {
 }
 
 section {
-    display: block;
-    height: 2em;
-    margin: 1em;
-    border-radius: 1em;
-    background-color: #24f8;
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    margin: 1.5rem 0 0.5rem;
+    background: #005e5e;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+}
+
+section h3 {
+    margin: 1rem 0 0.3rem;
+    background: #005e5e;
+    color: white;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    margin-top: 1.2rem;
+}
+
+section ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+section li {
+    margin: 0.2rem 0;
 }

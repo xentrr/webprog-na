@@ -14,6 +14,29 @@ function buildSections(data) {
         key => {
             let s = document.createElement('section')
             s.id = key
+            // h2 – fő cím (String, Array, stb.)
+            let h2 = document.createElement('h2');
+            h2.textContent = key;
+            s.appendChild(h2);
+
+            // kategóriák bejárása
+            Object.keys(data[key]).forEach(category => {
+                let h3 = document.createElement('h3');
+                h3.textContent = category;
+                s.appendChild(h3);
+
+                let ul = document.createElement('ul');
+
+                // metódusok listája
+                data[key][category].forEach(method => {
+                    let li = document.createElement('li');
+                    li.textContent = method;
+                    ul.appendChild(li);
+                });
+
+                s.appendChild(ul);
+            });
+
             return s
         }
     );
