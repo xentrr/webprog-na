@@ -9,55 +9,57 @@ export default class Tasks {
         )
     }
 
-    // 2. Aktív felhasználók szűrése
-    // Felhasználók listájából add vissza csak azokat, akik aktívak (isActive === true).
-    // Bemenet: users lista [{ isActive: boolean, ... }, ...]
-    // Kimenet: aktív felhasználók listája
-    getActiveUsers(users) {
+   // 2. Aktív felhasználók szűrése
+getActiveUsers(users) {
+    return users.filter(user => user.isActive === true);
+}
 
-    }
+// 3. Navigációs menüpontok generálása
+generateMenu(items) {
+    return items
+        .map(item => `<li><a href="${item.url}">${item.title}</a></li>`)
+        .join('');
+}
 
-    // 3. Navigációs menüpontok generálása
-    // Menüpont objektumokból (title, url) hozz létre <li><a></a></li> HTML elemeket.
-    // Bemenet: items lista [{ title: string, url: string }, ...]
-    // Kimenet: HTML string '<li><a href="...">...</a></li>...'
-    generateMenu(items) {
-        return '';
-    }
+// 4. Hibás űrlapmező ellenőrzése
+hasInvalidField(fields) {
+    return fields.some(field => field.isValid === false);
+}
 
-    // 4. Hibás űrlapmező ellenőrzése
-    // Űrlapmezők listájáról döntsd el, van-e köztük érvénytelen (isValid === false).
-    // Bemenet: fields lista [{ isValid: boolean, ... }, ...]
-    // Kimenet: boolean
-    hasInvalidField(fields) {
-    }
+// 5. Hibaüzenetek kigyűjtése
+getErrorMessages(fields) {
+    return fields
+        .filter(field => field.isValid === false)
+        .map(field => field.message);
+}
 
-    // 5. Hibaüzenetek kigyűjtése
-    // Űrlapmezőkből gyűjtsd ki a hibás mezők message mezőit.
-    getErrorMessages(fields) {
-        return [];
-    }
+//#region Egyéb feladatok (nem kötelező)
 
+// 6. Webshop kosár végösszeg számítása
+calculateCartTotal(cart) {
+    return cart.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+    );
+}
 
-    //#region Egyéb feladatok (nem kötelező)
-    // 6. Webshop kosár végösszeg számítása
-    // Kosártételekből (price, quantity) számítsd ki a teljes összeget.
-    calculateCartTotal(cart) {
-    }
+// 7. Termékek rendezése ár szerint
+sortProductsByPrice(products) {
+    return [...products].sort((a, b) => a.price - b.price);
+}
 
-    // 7. Termékek rendezése ár szerint
-    // Termékek listáját rendezd növekvő ár szerint.
-    sortProductsByPrice(products) {
-    }
+// 8. Lapozás (pagination)
+getPage(items, page, pageSize) {
+    const start = (page - 1) * pageSize;
+    return items.slice(start, start + pageSize);
+}
 
-    // 8. Lapozás (pagination)
-    // Egy lista elemeiből add vissza az adott oldalhoz tartozó elemeket.
-    getPage(items, page, pageSize) {
-    }
+// 10. 2D lista napi összesítése
+getDailyTotals(stats) {
+    return stats.map(day =>
+        day.reduce((sum, value) => sum + value, 0)
+    );
+}
 
-    // 10. 2D lista napi összesítése
-    // Egy kétdimenziós számlistában minden belső lista egy nap adatait tartalmazza - számíts napi összeseket.
-    getDailyTotals(stats) {
-    }
-    // #endregion
+//#endregion
 }
