@@ -5,7 +5,7 @@ export default class Tasks {
     // Kimenet: HTML string '<tr><td>...</td><td>...</td><td>...</td></tr><tr>...'
     generateTable(users) {
         return users.map(
-            user => `<tr><td>${user.Id}</td><td>${user.Name}</td><td><td>${user.Email}</td>`
+            user => `<tr><td>${user.Id}</td><td>${user.Name}</td><td>${user.Email}</td></tr>`
         )
     }
 
