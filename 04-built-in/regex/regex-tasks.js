@@ -5,6 +5,9 @@ export default class RegexTasks {
     // Bemenet: string | null
     // Kimenet: bool
     isNumber(text) {
+        if(!text) return false
+        let re = /^\-?\d+\.?\d*$/
+        return re.test(text)
     }
 
     // Leírás: megvizsgálja, hogy az átadott szöveg fix formátumú dátumot tartalmaz-e
