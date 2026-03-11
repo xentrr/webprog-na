@@ -28,6 +28,8 @@ cons.writeln('\n5. Vizsgáld meg és írd ki, hogy mindegyik város népessége 
 // Berlin: 3769000
 // Madrid: 3223000
 // Róma: 2873000
+cities.sort((a, b) => b.nepesseg - a.nepesseg).slice(0,3).forEach(c => cons.writeln(`${c.varos}: ${c.nepesseg}`))
+
 
 // 2. Gyűjtsd ki és írd ki, hogy milyen nyelveken beszélnek az Eurót használó országokban!
 //    Ügyelj arra, hogy ne legyenek ismétlődések!
@@ -36,9 +38,17 @@ cons.writeln('\n5. Vizsgáld meg és írd ki, hogy mindegyik város népessége 
 // olasz euró
 // francia euró
 // portugál euró
+cities.filter(c => c.penznem == "euró").reduce((lang, c) => {
+    if(!lang.includes(c.nyelv))
+        lang.push(c.nyelv)
+        return lang
+}, [])
+
 
 // 3. Keresd meg és írd ki a lengyel nyelvű város nevezetességét!
 // Királyi vár
+
+
 
 // 4. Készíts egy új listát a cities listából, melynek elemei az ország és a város nevéből álló szöveg !
 //    Írd ki az új lista elemeit ábécé sorrendben!
