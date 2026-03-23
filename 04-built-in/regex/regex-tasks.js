@@ -16,6 +16,7 @@ export default class RegexTasks {
         if(!text) return false
         let re = /^\-?\d+\.?\d*$/
         return re.test(text)
+    }
     isFloat(text) {
         // 10.
         const re1 = /^[+-]?\d+\.$/
